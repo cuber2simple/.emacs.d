@@ -7,6 +7,7 @@
 (setq backup-directory-alist (quote (("." . "~/.emacs-backups"))))
 
 (require 'init-const)
+(require 'init-kbd)
 (require 'init-startup)
 (require 'init-elpa)
 (require 'init-package)
