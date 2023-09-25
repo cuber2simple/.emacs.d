@@ -5,6 +5,8 @@
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (setq backup-directory-alist (quote (("." . "~/.emacs-backups"))))
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 
 (require 'init-const)
 (require 'init-kbd)

@@ -8,6 +8,7 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 
+(add-hook 'porg-mode-hook 'display-like-numbers-mode)
 (setq inhibit-startup-screen t)
 
 (provide 'init-startup)

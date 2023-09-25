@@ -1,3 +1,6 @@
+;;; init-elpa.el --- intsall use package and set package-archive
+;;; Commentary:
+;;; Code:
 (setq package-archives '(("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
 			 ("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
 			 ("org" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org")))
