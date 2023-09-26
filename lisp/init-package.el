@@ -4,11 +4,13 @@
 (use-package restart-emacs)
 
 (use-package benchmark-init
-  :init(benchmark-init/activate)
-  :hook(after-init . benchmark-init/deacitivate))
+  :init (benchmark-init/activate)
+  :hook (after-init . benchmark-init/deactivate))
 
 (use-package crux
-  :bind ("C-c k" . crux-smart-kill-line))
+  :bind (("C-c k" . 'crux-smart-kill-line)
+	 ("C-c ^" . 'crux-top-join-line)
+	 ("C-x ," . 'crux-find-user-init-file)))
 
 (use-package drag-stuff
              :bind (("<M-up>" . drag-stuff-up)
@@ -25,6 +27,7 @@
 	enable-recursive-minibuffers t
 	ivy-re-builders-alist '((t . ivy--regex-ignore-order))))
 
+
 (use-package counsel
   :after (ivy)
   :bind (("M-x" . counsel-M-x)
@@ -39,6 +42,10 @@
   :config (setq swiper-action-recenter t
 		swiper-include-line-number-in-search t))
 
+(use-package which-key
+  :defer nil
+  :config (which-key-mode))
+
 (use-package company
   :hook (after-init . global-company-mode)
   :config (setq company-minimum-prefix-length 1
@@ -48,5 +55,18 @@
   :config
   (global-set-key (kbd "M-n") #'flymake-goto-next-error)
   (global-set-key (kbd "M-p") #'flymake-goto-prev-error))
+
+(use-package ivy-posframe
+  :demand t
+  :after ivy
+  :custom
+  (ivy-posframe-display-functions-alist '((swiper . ivy-posframe-display-at-window-bottom-left)
+					  (complete-symbol . ivy-posframe-display-at-window-bottom-left)
+					  (counsel-M-x . ivy-posframe-display-at-window-bottom-left)
+					  (counsel-find-file . ivy-posframe-display-at-window-bottom-left)
+					  (ivy-switch-buffer . ivy-posframe-display-at-window-bottom-left)
+					  (t . ivy-posframe-display-at-window-bottom-left)))
+  :config
+  (ivy-posframe-mode))
 
 (provide 'init-package)
