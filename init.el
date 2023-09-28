@@ -87,5 +87,12 @@
 
 (use-package restart-emacs)
 
+(use-package flycheck
+  :ensure t
+  :hook                        ; 为模式设置 hook
+  (prog-mode . flycheck-mode))
+
+(require 'init-fn)
 (provide 'init)
 ;;; init.el ends here
+(put 'upcase-region 'disabled nil)
